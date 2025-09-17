@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
+import { Contact } from '../../interfaces/contact';
+import { ContactsService } from '../../services/contacts-services';
 
 @Component({
   selector: 'app-contact-list-item',
@@ -7,5 +9,7 @@ import { Component } from '@angular/core';
   styleUrl: './contact-list-item.scss'
 })
 export class ContactListItem {
-
+  contact = input.required<Contact>()
+  aleatorio = Math.random()
+  contactsService = inject(ContactsService)
 }

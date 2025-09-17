@@ -5,19 +5,24 @@ import { ContactDetailsPage } from './pages/contact-details-page/contact-details
 import { LoggedLayout } from './layouts/logged-layout/logged-layout';
 import { GroupsPage } from './pages/groups/groups';
 import { RegisterPage } from './pages/register-page/register-page';
+import { onlyPublicUserGuard } from './guards/only-public-user-guard';
+import { onlyLoggedUserGuard } from './guards/only-logged-user-guard';
+
 
 export const routes: Routes = [
   {
     path: "login",
-    component: LoginPage
+    component: LoginPage,
+    canActivate: [onlyPublicUserGuard]
   },
   {
     path: "register",
-    component: RegisterPage
-  },
+    component: RegisterPage,
+    canActivate: [onlyPublicUserGuard] },
   {
     path: "",
     component: LoggedLayout,
+    canActivateChild: [onlyLoggedUserGuard],
     children: [
       {
         path: "",

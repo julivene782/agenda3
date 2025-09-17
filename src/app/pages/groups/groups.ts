@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { AuthService } from '../../services/auth-service';
 
 @Component({
   selector: 'app-groups',
@@ -6,6 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './groups.html',
   styleUrl: './groups.scss'
 })
-export class Groups {
-
+export class GroupsPage {
+  authService = inject(AuthService);
 }
