@@ -1,5 +1,143 @@
 @use "./../../../../public/styles/forms-pages.scss";
 
-.error{
-    color: var(--color-error);
+body {
+  margin: 0;
+  padding: 0;
+  background: #f9fafb;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #1f2937;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2rem;
 }
+
+div > span {
+  display: inline-block;
+  font-weight: 600;
+  font-size: 14px;
+  color: #374151;
+  margin-right: 2rem;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 1.5rem;
+  width: 90%;
+  max-width: 800px;
+}
+
+app-contact-list-item {
+  display: block;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+app-contact-list-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+}
+
+#container.card {
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: 28px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  margin-top: 3rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#container.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.15);
+}
+
+#container.card h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #1f2937;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+
+form div {
+  text-align: left;
+  margin-bottom: 1.3rem;
+}
+
+label {
+  display: block;
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 0.4rem;
+}
+
+input[type="text"],
+input[type="email"] {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  background: #f9fafb;
+  font-size: 15px;
+  color: #111827;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+  border-color: #1e3a8a;
+  box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.25);
+  outline: none;
+}
+
+
+input[type="checkbox"] {
+  transform: scale(1.2);
+  accent-color: #1e3a8a;
+  cursor: pointer;
+}
+
+
+.error {
+  color: #dc2626;
+  font-size: 13px;
+  margin-top: 0.4rem;
+}
+
+
+button {
+  width: 100%;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #1e3a8a, #1e40af); 
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+button:hover:enabled {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(30, 58, 138, 0.5);
+}
+
+

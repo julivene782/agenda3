@@ -1,3 +1,73 @@
-div{
-    background-color: gray;
+div nav {
+  width: 100%;
+  background: linear-gradient(135deg, #1e3a8a, #1e40af);
+  padding: 0.75rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
+
+
+.nav-left {
+  display: flex;
+  gap: 2rem; 
+  margin-left: 4rem;
+}
+
+div nav a {
+  color: #f9fafb;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px; 
+  background-color: rgba(255, 255, 255, 0.1); 
+  transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
+}
+
+div nav a:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  color: #bfdbfe;
+  transform: translateY(-2px);
+}
+
+div nav button {
+  background: #133483;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 0.5rem 1.2rem;
+  font-size: 15px;
+  font-weight: 600;
+  margin-right: 4rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+div nav button:hover {
+  background: #1e293b;
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+  div nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-left {
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  div nav button {
+    margin-top: 0.5rem;
+  }
+}
+

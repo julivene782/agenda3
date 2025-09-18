@@ -1,92 +1,136 @@
 @use "./../../../../public/styles/forms-pages.scss";
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap');
 
-.login-container {
-  height: 100vh;
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f9fafb;
   display: flex;
   justify-content: center;
-  align-items: center;
-  background: linear-gradient(135deg, #e0f7fa, #b2ebf2); 
+  align-items: flex-start;
+  height: 100vh;
+  padding-top: 100px;
 }
 
-.login-card {
-  background: white;
-  padding: 3rem 2.5rem;
-  border-radius: 20px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-  width: 400px;
+#container.card {
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: 28px;
+  width: 360px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
   text-align: center;
-  color: #333;
-  transition: all 0.3s ease-in-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 100px;
 }
 
-.login-card h2 {
-  font-size: 28px;
-  margin-bottom: 2rem;
-  color: #00796b;
+#container.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.15);
+}
+
+
+#container.card h1 {
+  font-size: 1.8rem;
   font-weight: 700;
+  margin-bottom: 2rem;
+  color: #405681;
 }
 
-.form-group {
-  margin-bottom: 1.5rem;
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+
+form div {
   text-align: left;
+  margin-bottom: 1.5rem;
 }
 
-.form-group label {
+label {
   display: block;
-  margin-bottom: 0.4rem;
-  font-size: 15px;
-  color: #555;
-  font-weight: 500;
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 0.5rem;
 }
 
-.form-group input {
+input[type="email"],
+input[type="password"] {
   width: 100%;
-  padding: 0.9rem;
-  border: 2px solid #b2dfdb;
-  border-radius: 10px;
-  background: #f5f5f5;
-  color: #333;
+  padding: 0.8rem;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  background: #f9fafb;
   font-size: 15px;
-  transition: border-color 0.3s;
+  color: #111827;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.form-group input:focus {
+input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
   outline: none;
-  border-color: #00796b;
-  background: #e0f2f1;
 }
+
+
+.error {
+  color: #dc2626;
+  font-size: 13px;
+  margin-top: 0.4rem;
+}
+
 
 button {
-  margin-top: 1.2rem;
   width: 100%;
   padding: 0.9rem;
   border: none;
-  border-radius: 10px;
-  background: #00796b;
-  color: white;
-  font-size: 17px;
-  font-weight: 500;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.3s ease-in-out;
+  margin-top: 0.5rem;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 button:hover {
-  background: #004d40;
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
 }
 
-.register-text {
+
+p {
+  font-size: 14px;
+  color: #6b7280;
   margin-top: 1.5rem;
-  font-size: 15px;
-  color: #555;
 }
 
-.register-text a {
-  color: #00796b;
+p a {
+  color: #2563eb;
   text-decoration: none;
   font-weight: 500;
+  transition: color 0.3s ease;
 }
 
-.register-text a:hover {
-  text-decoration: underline;
+p a:hover {
+  color: #1e3a8a;
 }
+
+
+a[routerLink="/"] {
+  display: block;
+  margin-top: 1rem;
+  font-size: 14px;
+  color: #626d81;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a[routerLink="/"]:hover {
+  color: #1e3a8a;
+}
+
