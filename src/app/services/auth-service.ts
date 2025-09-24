@@ -9,7 +9,6 @@ export class AuthService {
   router = inject(Router);
   token : null|string = localStorage.getItem("token");
 
-
   async login(loginData: LoginData){
     const res = await fetch("https://agenda-api.somee.com/api/authentication/authenticate",
       {
@@ -27,7 +26,9 @@ export class AuthService {
 
   logout(){
     this.token = null;
+    localStorage.removeItem("token");
     this.router.navigate(["/login"]);
   }
 }
 
+// 

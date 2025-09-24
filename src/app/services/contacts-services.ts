@@ -8,11 +8,13 @@ import { AuthService } from './auth-service';
 export class ContactsService {
   aleatorio = Math.random();
   authService = inject(AuthService);
+  readonly URL_BASE = "https://agenda-api.somee.com/api/contacts";
 
   contacts: Contact[] = []
-    constructor() { }
+
+  
   async getContacts() {
-    const res = await fetch("https://agenda-api.somee.com/api/contacts",
+    const res = await fetch(this.URL_BASE,
       {
         headers:{
           Authorization: "Bearer "+this.authService.token,
@@ -24,23 +26,89 @@ export class ContactsService {
   }
 
   
-  getContactById() {
-
+  async getContactById(id: string | number) {
+    const res = await fetch(this.URL_BASE+"/"+id, 
+      {
+        headers: {
+          Authorization: "Bearer "+this.authService.token,
+        },
+      });
+    if(!res.ok) return;
+    const resContact:Contact = await res.json();
+    return resContact;
   }
 
-  createContact(nuevoContacto:NewContact) {
-    const contacto:Contact = {
-      ...nuevoContacto,
-      id: Math.random().toString()
-    }
-    this.contacts.push(contacto);
+
+  async createContact(nuevoContacto:NewContact) {
+    const res = await fetch(this.URL_BASE, 
+      {
+        method:"POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer "+this.authService.token,
+        },
+        body: JSON.stringify(nuevoContacto)
+      });
+    if(!res.ok) return;
+    const resContact:Contact = await res.json();
+    this.contacts.push(resContact);
+    return resContact;
   }
 
-  editContact() { }
 
-  deleteContact(id:string) {
-    this.contacts = this.contacts.filter(contact => contact.id !== id)
+  async editContact(contactoEditado:Contact) {
+    const res = await fetch(this.URL_BASE+"/"+contactoEditado.id, 
+      {
+        method:"PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer "+this.authService.token,
+        },
+        body: JSON.stringify(contactoEditado)
+      });
+    if(!res.ok) return;
+    const resContact:Contact = await res.json();
+    
+    this.contacts = this.contacts.map(contact => {
+      if(contact.id === resContact.id) {
+        return resContact;
+      };
+      return contact;
+    });
+    return resContact;
   }
 
-  setFavourite() { }
+
+  async deleteContact(id:string | number) {
+    const res = await fetch(this.URL_BASE+"/"+id, 
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: "Bearer "+this.authService.token,
+        },
+      });
+    if(!res.ok) return;
+    this.contacts = this.contacts.filter(contact => contact.id !== id);
+    return true;
+  }
+
+  
+  async setFavourite(id:string | number ) {
+    const res = await fetch(this.URL_BASE+"/"+id+"favorite", 
+      {
+        method: "POST",
+        headers: {
+          Authorization: "Bearer "+this.authService.token,
+        },
+      });
+    if(!res.ok) return;
+    
+    this.contacts = this.contacts.map(contact => {
+      if(contact.id === id) {
+        return {...contact, isFavorite: !contact.isFavorite};
+      };
+      return contact;
+    });
+    return true;
+  }
 }
