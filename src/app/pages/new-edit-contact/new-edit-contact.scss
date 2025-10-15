@@ -1,0 +1,99 @@
+
+#container.card {
+  width: 380px;
+  margin: 60px auto;
+  background: #ffffff;
+  border-radius: 25px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+  padding: 40px 40px 50px;
+  font-family: 'Poppins', sans-serif;
+  color: #2e3d94
+}
+
+
+#container h2 {
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+
+#container form div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+
+#container label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #2e3d94;
+  margin-bottom: 6px;
+}
+
+
+#container input[type="text"],
+#container input[type="email"],
+#container input[type="number"],
+#container input[type="password"] {
+  border: none;
+  outline: none;
+  background: #f1f4f8;
+  border-radius: 10px;
+  padding: 12px 15px;
+  font-size: 14px;
+  transition: all 0.2s ease-in-out;
+}
+
+#container input:focus {
+  background: #e9edf5;
+  box-shadow: 0 0 0 2px #4461f2;
+}
+
+
+#container input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #4461f2;
+}
+
+
+.error {
+  color: #e74c3c;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+
+#container button {
+  width: 100%;
+  background: linear-gradient(90deg, #2c46c9 0%, #4461f2 100%);
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-weight: 600;
+  padding: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 10px;
+}
+
+#container button:hover {
+  opacity: 0.9;
+}
+
+
+#container button:disabled {
+  background: #2e3d94;
+  cursor: not-allowed;
+}
+
+
+#container div:has(input[type="checkbox"]) {
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}

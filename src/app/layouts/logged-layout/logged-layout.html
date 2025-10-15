@@ -1,9 +1,20 @@
-<div>
-    <nav>
-        <a routerLink="/">Contactos</a>
-        <a routerLink="/groups">Grupos</a>
-        <button (click)="openLogoutModal()">Log out</button>
-    </nav>
+<div class="layout">
+  <nav class="sidebar">
+    <div class="menu-top">
+      <a routerLink="/" routerLinkActive="router-link-active">Contactos</a>
+      <a routerLink="/groups" routerLinkActive="router-link-active"> Grupos</a>
+    </div>
+
+    <div class="menu-bottom">
+      <div class="correo">Correo</div>
+      <button class="logout" (click)="openLogoutModal()">⎋ Logout</button>
+    </div>
+  </nav>
+
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
 </div>
-<router-outlet/>
+
+
 
