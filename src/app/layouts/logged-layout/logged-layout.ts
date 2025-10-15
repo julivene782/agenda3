@@ -13,7 +13,6 @@ export class LoggedLayout {
 
   authService = inject(AuthService);
 
-  /** Abre modal de pregunta de cerrar sesión */
   openLogoutModal(){
     Swal.fire({
       title: "¿Desea cerrar sesión?",
@@ -23,7 +22,7 @@ export class LoggedLayout {
       cancelButtonText: "Cancelar",
       denyButtonText: `Cerrar sesión`
     }).then((result) => {
-      if (result.isDenied) { //Reviso que haya clickeado en el botón rojo.
+      if (result.isDenied) { 
         this.authService.logout();
       }
     });
