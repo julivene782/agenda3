@@ -12,7 +12,7 @@ export class ContactsService {
 
   contacts: Contact[] = []
 
-  
+
   async getContacts() {
     const res = await fetch(this.URL_BASE,
       {
@@ -55,7 +55,7 @@ export class ContactsService {
     return resContact;
   }
 
-
+  
   async editContact(contactoEditado:Contact) {
     const res = await fetch(this.URL_BASE+"/"+contactoEditado.id, 
       {
@@ -67,18 +67,17 @@ export class ContactsService {
         body: JSON.stringify(contactoEditado)
       });
     if(!res.ok) return;
-    const resContact:Contact = await res.json();
-    
+   
     this.contacts = this.contacts.map(contact => {
-      if(contact.id === resContact.id) {
-        return resContact;
+      if(contact.id === contactoEditado.id) {
+        return contactoEditado;
       };
       return contact;
     });
-    return resContact;
+    return contactoEditado;
   }
 
-
+ 
   async deleteContact(id:string | number) {
     const res = await fetch(this.URL_BASE+"/"+id, 
       {
@@ -94,7 +93,7 @@ export class ContactsService {
 
   
   async setFavourite(id:string | number ) {
-    const res = await fetch(this.URL_BASE+"/"+id+"favorite", 
+    const res = await fetch(this.URL_BASE+"/"+id+"/favorite", 
       {
         method: "POST",
         headers: {
@@ -102,7 +101,7 @@ export class ContactsService {
         },
       });
     if(!res.ok) return;
-    
+  
     this.contacts = this.contacts.map(contact => {
       if(contact.id === id) {
         return {...contact, isFavorite: !contact.isFavorite};

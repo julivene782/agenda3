@@ -1,11 +1,9 @@
 <div>
-  <nav>
-    <div class="nav-left">
-      <a routerLink="/contact">Contactos</a>
-      <a routerLink="/groups">Grupos</a>
-    </div>
-    <button (click)="authService.logout()">Log out</button>
-  </nav>
+    <nav>
+        <a routerLink="/">Contactos</a>
+        <a routerLink="/groups">Grupos</a>
+        <button (click)="openLogoutModal()">Log out</button>
+    </nav>
 </div>
 <router-outlet/>
 
